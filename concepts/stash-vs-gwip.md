@@ -1,0 +1,56 @@
+# Git Stash 与 gwip
+
+#### 1、如何在不提交修改的前提下，执行 pull / merge 操作
+
+我见过最圡方法是，将修改的文件 copy 到 git 仓库之外的目录临时存放，pull / merge 操作完成之后，再 copy 回来。这样做，一个是效率不高，更严重的是可能会遗漏潜在的冲突。
+
+事实上，如果你的 git 版本大于 2.10，那么只需以下一行命令就能自动完成 git stash -&gt; git pull -&gt; git stash pop 的操作。
+
+注：命令后面的注释表示上文提到的 zsh git plugin alias
+
+```text
+git pull --rebase --autostash # gupa
+```
+
+#### 2、git stash
+
+在当前任务未完成前，我们可能需要执行本地与远程分支的同步或本地不同分支的 merge 操作。这时候如果将未完成修改的文件直接 commit，会导致 log 中记录许多无效的 commit 和 merge 记录。
+
+git stash 可以将当前工作状态（WIP，work in progress）临时存放在 stash 队列中，待 pull / merge 操作完成后，再从 stash 队列中重新应用这些修改。
+
+以下是 git stash 常用命令：
+
+```text
+# 查看 stash 队列中已暂存了多少 WIP
+git stash list # gstl
+​
+# 恢复上一次的 WIP 状态，并从队列中移除
+git stash pop # gstp
+​
+# 添加当前 WIP，--include-untracked 参数表示未提交到版本库的新文件也一起 stash，message 可加上自定义的说明。直接使用 git stash 表示省略以上两个参数 
+git stash --include-untracked save 'message' # gaa && gsta 
+​
+# 恢复指定编号的 WIP，同时从队列中移除
+git stash pop stash@{num}
+​
+# 恢复指定编号的 WIP，但不从队列中移除
+git stash apply stash@{num}
+```
+
+**如果 git stash 的文件刚好在远端被修改过了，那么在 pop 时会自动将修改过的文件标记为 conflict 状态。**
+
+冲突解决方案参考本文其他章节即可，需要注意的是，`git stash pop` 出来的文件，是 --theirs 而非 --ours。
+
+#### 3、gwip 与 gunwip
+
+Git stash 的记录保存在本地，如果想在不同电脑（例如公司和家庭电脑中）同步临时性的修改，就无法通过 stash 完成。
+
+Git 社区中约定俗称的方案是，在 commit 中通过 **wip** 关键词表示，这是一次 **work in progress 的临时提交**。借助 zsh git alias，我们可以通过一组 `gwip` 和 `gunwip` 命令来实现同步。
+
+其实现原理是，gwip 提交了特定的 commit message，gunwip 判断如果上一次提交为 gwip 提交，则自动进行 reset，以下是 alias 实现。
+
+```text
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
+```
+
