@@ -1,8 +1,8 @@
-# Table of contents
+# Summary
 
 * [前言](README.md)
 
-## 概念
+### Concepts
 
 * [Git SSH Keys 配置](concepts/ssh-keys.md)
 * [Git Alias Cheat Sheet](concepts/git-alias.md)
@@ -12,7 +12,7 @@
 * [Subtree 与 Submodule](concepts/subtree-vs-submodule.md)
 * [Cherry Pick 的使用场景](concepts/cherry-pick.md)
 
-## 常见问题
+### Questions
 
 * [如何配置多个提交用户？](questions/git-config-user.md)
 * [如何撤销修改？](questions/revert.md)
