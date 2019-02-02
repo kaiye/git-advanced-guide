@@ -6,7 +6,7 @@
 
 大部分时候，「最快解决冲突」的办法是：直接选择当前 HEAD 的版本（ours），或合并进来的分支版本（theirs）。
 
-```shell
+```text
 # 使用当前分支 HEAD 版本，冲突源文件的 <<<<<<< 标记部分，======= 的上方
 git checkout --ours <文件名> # gco --ours
 ​
@@ -21,7 +21,7 @@ git add <文件名> # ga
 
 你可以直接用编辑器打开冲突的源文件进行修改，但需要注意删除冲突标记，你也可以使用体验更加友好的 Three-Way Merge 工具，借助 `git mergetool` 命令来完成。
 
-[如何配置 git merge tool？](questions/mergetool.md)请参见后续章节。
+[如何配置 git merge tool？](https://github.com/kaiye/git-advanced-guide/tree/97cbe2f21bcc8e3e6b6486c69124b3da4fb3329d/questions/questions/mergetool.md)请参见后续章节。
 
 ## 3、好的习惯
 
@@ -39,7 +39,7 @@ git add <文件名> # ga
 
 rebase 大概的操作步骤如下：
 
-```shell
+```text
 # 将当前分支的版本追加到从远程 pull 回来的节点之后
 git pull --rebase       # gup
 ​
@@ -55,7 +55,7 @@ git rebase --skip       # grbs
 
 需要注意的是，rebase 默认以 [bog-standard flattening](https://stackoverflow.com/questions/11863785/make-git-pull-rebase-preserve-merge-commits/11863842) 模式将提交的时间线进行扁平化处理，如果希望保留两个版本的合并记录，可以使用 `git pull --rebase=preserve` 参数，或直接将该参数设置为全局配置：
 
-```shell
+```text
 git config --global pull.rebase preserve
 ```
 

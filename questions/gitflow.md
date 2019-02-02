@@ -1,8 +1,8 @@
 # 分支操作流示例
 
-![来源 https://yq.aliyun.com/articles/280233](../.gitbook/assets/gitflow.png)
+![&#x6765;&#x6E90; https://yq.aliyun.com/articles/280233](../.gitbook/assets/gitflow.png)
 
-```shell
+```text
 # 查看所有本地与远程分支
 git branch -a               # gba
 ​
@@ -25,3 +25,4 @@ git branch -d feature/v1    # gbd feature/v1
 # 删除远程 feature/v1 分支
 git push origin --delete feature/v1 # gp -d origin feature/v1
 ```
+

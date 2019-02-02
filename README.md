@@ -23,5 +23,5 @@ Git 是程序员必备技能，在能熟练使用 Git GUI 客户端之后（如 
 虽然本书不包含那些过于简单、过于理论和过于复杂的知识点，但以下这些参考资料或许会对你有所帮助：
 
 * [Learn Git Branching](https://learngitbranching.js.org) 知名的 Git 教学游戏，通过可视化的动画和交互，帮助理解所有分支操作的概念和方法。如果你打算自学，这些命令会用得上：`show solution`、`levels`、`undo`、`reset`。
-* [Pro Git](https://git-scm.com/book/zh/v2) 专业全面的 git 教程：）
+* [Pro Git](https://git-scm.com/book/zh/v2) 专业全面的 git 教程
 

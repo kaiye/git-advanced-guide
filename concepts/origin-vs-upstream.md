@@ -1,4 +1,4 @@
-# origin 和 upstream
+# origin 与 upstream
 
 Git 是一个去中心化的版本管理工具，这意味着一个 Git 仓库，既可以没有远程仓库，也可以有多个远程仓库，其中默认的远程仓库我们称之为 `origin`。
 
@@ -8,7 +8,7 @@ Git 是一个去中心化的版本管理工具，这意味着一个 Git 仓库�
 
 ## 1、查看远程仓库列表
 
-```shell
+```text
 # 查看远程仓库列表
 git remote -v           # grv
 
@@ -18,13 +18,13 @@ git remote show origin  # gr show origin
 
 ## 2、添加 upstream 仓库信息
 
-```shell
+```text
 git remote add upstream <git_repository_url> # gra upstream
 ```
 
 ## 3、删除 upstream 仓库信息
 
-```shell
+```text
 git remote remove upstream # grrm upstream
 ```
 

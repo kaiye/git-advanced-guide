@@ -10,7 +10,7 @@
 * 同一分支中某些特性改错了，但提交更新次数过多，需要选中某些历史提交，再次合并至 head；
 * 项目最开始的基准分支切错了，后续需要重新切基准分支，并将错误分支上的提交记录移植到正确分支上。
 
-```shell
+```text
 # cherry-pick 指定 commit，可同时传入多个 commit
 git cherry-pick <commit_hash>   # gcp
 ​
@@ -20,3 +20,4 @@ git cherry-pick --abort         # gcpa
 # cherry-pick 多个 commit 时，解决冲突后继续下次合并
 git cherry-pick --continue      # gcpc
 ```
+
