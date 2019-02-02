@@ -12,14 +12,14 @@ Git 服务提供商（Github、Gitlab 等）会在用户设置界面提供一个
 
 ## 1、生成 SSH 私钥、公钥对
 
-```text
+```shell
 # 运行密钥生成命令，一路回车
 ssh-keygen
 ```
 
 注：`ssh-keygen` 命令有诸多参数用法，如果你使用 `-f` 参数项指定了密钥对的名称，那么在 macOS 上还需要使用 `ssh-add` 命令将密钥对加入 SSH agent 中，或者在 SSH config 文件中配置主机和密钥的使用。
 
-```text
+```shell
 ssh-keygen -f ~/.ssh/github
 ssh-add -K ~/.ssh/github
 ```
@@ -28,13 +28,13 @@ ssh-add -K ~/.ssh/github
 
 SSH 默认私钥地址为：`~/.ssh/id_rsa` ，对应的公钥为：`~/.ssh/id_rsa.pub`，使用编辑器或 `cat` 命令输出公钥内容拷贝至剪贴板，然后将公钥粘贴至对应的配置后台。如，Github 的地址为 [https://github.com/settings/keys](https://github.com/settings/keys)
 
-```text
+```shell
 cat ~/.ssh/id_rsa.pub
 ```
 
 ## 3、测试 SSH 是否连接成功
 
-```text
+```shell
 # 这里以 Github 服务为例
 ssh -T git@github.com
 ```

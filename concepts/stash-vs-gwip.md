@@ -8,7 +8,7 @@
 
 事实上，如果你的 git 版本大于 2.10，那么只需以下一行命令就能自动完成 git stash -&gt; git pull -&gt; git stash pop 的操作。
 
-```text
+```shell
 git pull --rebase --autostash # gupa
 ```
 
@@ -20,7 +20,7 @@ git stash 可以将当前工作状态（WIP，work in progress）临时存放在
 
 以下是 git stash 常用命令：
 
-```text
+```shell
 # 查看 stash 列表中已暂存了多少 WIP
 git stash list              # gstl
 ​
@@ -48,7 +48,7 @@ Git 社区中有一条约定是，在 commit 中通过 **wip** 关键词表示�
 
 其实现原理是，gwip 提交了特定的 commit message（即，`--wip-- [skip ci]`），gunwip 判断如果上一次提交为 gwip 提交，则自动进行 reset，以下是 alias 的细节。
 
-```text
+```shell
 alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 ```

@@ -4,7 +4,7 @@ Git tag 常用于发布版本的标注，可以理解为 tag 是对某一次 com
 
 ## 1、查看 tag 列表
 
-```text
+```shell
 # 列出所有本地 tag
 git tag
 ​
@@ -19,7 +19,7 @@ git tag | sort -V # gtv
 
 Tag 包含两种，一种是轻量 tag，只设置别名，另外一种为附注 tag，能包含这个 tag 的作者和额外的备注信息。
 
-```text
+```shell
 # 创建一个名为 v0.0.1 的轻量 tag
 git tag v0.0.1
 ​
@@ -32,7 +32,7 @@ git push origin v1.0.0 # ggp v1.0.0
 
 ## 3、删除 tag
 
-```text
+```shell
 # 删除本地 tag
 git tag -d v1.0.0
 ​
@@ -44,7 +44,7 @@ git push origin -d v1.0.0 # gp origin :v1.0.0
 
 清晰的 tag 版本信息，不但有助于发布版本的选择和回滚，同时能十分方便的查看到分支的版本提交进度。
 
-```text
+```shell
 git describe master --tags
 ```
 
@@ -54,7 +54,6 @@ git describe master --tags
 
 如果需要知道本地与远程最近发布的一次 tag 版本是什么，直接运行 `gdct` 即可。
 
-```text
+```shell
 alias gdct='git describe --tags `git rev-list --tags --max-count=1`'
 ```
-

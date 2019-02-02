@@ -6,7 +6,7 @@
 
 此类文件的状态为 `Untracked files` ，撤销方法如下：
 
-```text
+```shell
 git clean -fd . # gclean .
 ```
 
@@ -16,7 +16,7 @@ git clean -fd . # gclean .
 
 此类文件的状态为 `Changes not staged for commit`，撤销方法：
 
-```text
+```shell
 git checkout . # gco .
 ```
 
@@ -24,7 +24,7 @@ git checkout . # gco .
 
 此类文件的状态为 `Changes to be committed`，撤销方法：
 
-```text
+```shell
 git reset . # grh .
 ```
 
@@ -34,14 +34,14 @@ git reset . # grh .
 
 每次提交都会生成一个 commit hash，通过以下命令可查阅 hash id 并将其回滚：
 
-```text
+```shell
 git log # glol
-git reset <commit_hash> # grh
+git reset <commit_hash> # grh 
 ```
 
 如果需要「回滚至上一次提交」，可直接使用以下命令：
 
-```text
+```shell
 git reset head~1 # grh head~1
 ```
 
@@ -56,4 +56,3 @@ git reset head~1 # grh head~1
 ## 6、git reset 与 revert 的区别
 
 二者都是做回滚操作，不同之处在于：`reset` 直接将 head 指向了回滚的记录，丢弃了这条记录之后所有的提交时间线，而 `revert` 不会改变已有的时间线，通过新增提交记录将项目还原到之前的某次提交时的状态。
-

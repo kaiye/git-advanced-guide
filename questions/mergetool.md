@@ -8,7 +8,7 @@
 
 首先从 Beyond Compare 菜单中选择 **Install Command Line Tools**，然后运行以下配置命令：
 
-```text
+```shell
 git config --global merge.tool bc3
 git config --global mergetool.bc3 trustExitCode true
 git config --global mergetool.keepBackup false # 关闭生成 .orig 备份文件
@@ -16,7 +16,7 @@ git config --global mergetool.keepBackup false # 关闭生成 .orig 备份文件
 
 设置完成后，即可使用 Beyond Compare Text Merge 功能打开待解决冲突的文件：
 
-```text
+```shell
 git mergetool <文件名>
 ```
 
