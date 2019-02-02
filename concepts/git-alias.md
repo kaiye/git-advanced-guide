@@ -42,16 +42,16 @@ git ls
 | **`gco`**   | `git checkout`                                                                                             |                                              |
 | **`gcb`**   | `git checkout -b`                                                                                          | 从当前分支新建并转向新分支                   |
 | **`glol`**  | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'`   | 格式化版本号、提交时间、作者信息的日志       |
-| `gwip`      | `git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"` | 将当前新增与改动的文件做一次临时提交         |
-| `gunwip`    | `git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1`                                              | 从上一次 gwip 恢复                           |
+| `gwip`      |  | 将当前新增与改动的文件做一次临时提交         |
+| `gunwip`    |                                               | 从上一次 gwip 恢复                           |
 | **`grhh`**  | `git reset HEAD --hard`                                                                                    |                                              |
 | `gclean`    | `git clean -df`                                                                                            |                                              |
 | `gpristine` | `git reset --hard && git clean -dfx`                                                                       | 注意 .gitignore 里的 node_modules 也会被清除 |
 | `gsta`      | `git stash save`                                                                                           |                                              |
 | `gstl`      | `git stash list`                                                                                           |                                              |
 | `gstp`      | `git stash pop`                                                                                            |                                              |
-| `gtv`       | `git tag | sort -V`                                                                                        |                                              |
-| `gdct`      | `` git describe --tags `git rev-list --tags --max-count=1` ``                                              | 当前最近 tag 版本信息                        |
+| `gtv`       |                                                                                       |                                              |
+| `gdct`      |                                              | 当前最近 tag 版本信息                        |
 | `gca!`      | `git commit -v -a --amend`                                                                                 | 将当前修改追加至上一次提交，并修改提交记录   |
 
 **注：本书所有章节中 git 命令行代码中，会在行内注释中标注对应的 zsh alias 用法。**
