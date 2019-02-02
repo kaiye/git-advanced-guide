@@ -9,19 +9,22 @@ Git 是一个去中心化的版本管理工具，这意味着一个 Git 仓库�
 ## 1、查看远程仓库列表
 
 ```shell
-git remote -v # 查看远程仓库列表
-git remote show origin # 查看具体仓库细节
+# 查看远程仓库列表
+git remote -v           # grv
+
+# 查看具体仓库细节
+git remote show origin  # gr show origin
 ```
 
 ## 2、添加 upstream 仓库信息
 
 ```shell
-git remote add upstream <git仓库地址>
+git remote add upstream <git_repository_url> # gra upstream
 ```
 
 ## 3、删除 upstream 仓库信息
 
 ```shell
-git remote rm upstream
+git remote remove upstream # grrm upstream
 ```
 

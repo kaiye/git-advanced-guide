@@ -1,43 +1,57 @@
-# Git Alias
+# Git Alias Cheat Sheet
 
-#### 1、设置 git log alias
+## 1、设置 git log alias
 
 `git log` 是一个十分强大的命令，使用以下命令可以查看每次提交的文件修改列表，和分支变化的图形信息。
 
-```text
+```shell
 git log --name-status --oneline --graph
 ```
 
-但作为一个地球人，我们是很难记住这些复杂选项的，查手册也是相当费时，这里就需要用到 git alias 的用法。我们可以通过以下语句，配置出一个 `git ls` 的命令，以实现相同的效果。
+但作为一个地球人，我们是很难记住这些复杂选项的，查手册也是相当费时，这里就需要用到 `git alias` 的用法。我们可以通过以下语句，配置出一个 `git ls` 的命令，以实现相同的效果。
 
-```text
+```shell
 git config --global alias.ls 'log --name-status --oneline --graph'
+
+# 运行新命令即可查看效果
+git ls
 ```
 
-#### 2、Zsh git plugin alias
+## 2、ZSH Git Plugin Alias
 
-如果你使用了 `zsh`（参考《[全新 Mac 安装指南（编程篇）](https://github.com/kaiye/kaiye.github.com/issues/2)》 ），那么开启 [zsh git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git) 后，你将会直接获得一批好用的 git alias：
+如果你使用了 `zsh`（参考《[全新 Mac 安装指南（编程篇）](https://github.com/kaiye/kaiye.github.com/issues/2)》 ），那么开启 [zsh git plugin](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git) 后，你将会直接获得一大群好用的 git alias。
 
-* `grv` 即 git remote -v
-* `gf` 即 git fetch，拉取远程更新
-* `gl` 即 git pull，与 fetch 的区别可以理解为，pull = fetch + merge
-* `gup` 即 git pull --rebase，通常 rebase 比默认 pull 少一次 merge 记录
-* `gupav` 即 git pull --rebase --autostash -v
-* `glum` 即 git pull upstream master
-* `gsu` 即 git submodule update
-* `gst` 即 git status
-* `gaa` 即 git add -all，将当前版本库所有改动提交至暂存区
-* `gp` 即 git push，本地分支提交至远程仓库
-* `gcmsg` 即 git commit -m
-* `gco` 即 git checkout
-* `glol` 格式化版本号、提交时间、作者信息的 git log
-* `gwip` 临时提交版本
-* `gunwip` 从当前分支的上一次临时提交版本恢复修改，与 `gwip` 成对使用
-* `grhh` 即 git reset HEAD --hard，重置当前所有未提交的修改
-* `gclean` 即 git clean -df，清除当前所有不在版本库的文件
-* `gpristine` 即 git reset --hard && git clean -dfx，注意 .gitignore 里的 node\_modules 也会被清除
-* `gsta` 即 git stash save
-* `gstl` 即 git stash list
-* `gstp` 即 git stash pop
-* `gtv` 即 git tag \| sort -V
+| Alias       | Command                                                                                                    | Remark                                       |
+| ----------- | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `grv`       | `git remote -v`                                                                                            | 查看远程分支列表                             |
+| **`gf`**    | `git fetch`                                                                                                |                                              |
+| **`gl`**    | `git pull`                                                                                                 |                                              |
+| `gup`       | `git pull --rebase`                                                                                        |                                              |
+| **`gupa`**  | `git pull --rebase --autostash`                                                                            |                                              |
+| `glum`      | `git pull upstream master`                                                                                 |                                              |
+| **`grb`**   | `git rebase`                                                                                               |                                              |
+| **`gm`**    | `git merge`                                                                                                |                                              |
+| `gba`       | `git branch -a`                                                                                            |                                              |
+| `gsu`       | `git submodule update`                                                                                     | 更新子仓库                                   |
+| **`gst`**   | `git status`                                                                                               |                                              |
+| **`gaa`**   | `git add -all`                                                                                             | 将当前版本库所有改动提交至暂存区             |
+| **`gp`**    | `git push`                                                                                                 |                                              |
+| `ggp`       | `git push origin "${*}"`                                                                                   | 可指定分支或标签名，默认当前分支             |
+| `ggsup`     | `git branch --set-upstream-to=origin/$(git_current_branch)`                                                | 当前分支与远程同名分支关联                   |
+| **`gcmsg`** | `git commit -m`                                                                                            |                                              |
+| **`gco`**   | `git checkout`                                                                                             |                                              |
+| **`gcb`**   | `git checkout -b`                                                                                          | 从当前分支新建并转向新分支                   |
+| **`glol`**  | `git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'`   | 格式化版本号、提交时间、作者信息的日志       |
+| `gwip`      | `git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"` | 将当前新增与改动的文件做一次临时提交         |
+| `gunwip`    | `git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1`                                              | 从上一次 gwip 恢复                           |
+| **`grhh`**  | `git reset HEAD --hard`                                                                                    |                                              |
+| `gclean`    | `git clean -df`                                                                                            |                                              |
+| `gpristine` | `git reset --hard && git clean -dfx`                                                                       | 注意 .gitignore 里的 node_modules 也会被清除 |
+| `gsta`      | `git stash save`                                                                                           |                                              |
+| `gstl`      | `git stash list`                                                                                           |                                              |
+| `gstp`      | `git stash pop`                                                                                            |                                              |
+| `gtv`       | `git tag | sort -V`                                                                                        |                                              |
+| `gdct`      | `` git describe --tags `git rev-list --tags --max-count=1` ``                                              | 当前最近 tag 版本信息                        |
+| `gca!`      | `git commit -v -a --amend`                                                                                 | 将当前修改追加至上一次提交，并修改提交记录   |
 
+**注：本书所有章节中 git 命令行代码中，会在行内注释中标注对应的 zsh alias 用法。**

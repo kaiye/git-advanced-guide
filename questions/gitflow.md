@@ -1,9 +1,9 @@
 # 分支操作流示例
 
-![&#x6CE8;&#xFF1A;&#x4E0A;&#x56FE;&#x6765;&#x81EA;&#x963F;&#x91CC;&#x6301;&#x7EED;&#x4EA4;&#x4ED8;&#x5E73;&#x53F0;&#x4ECB;&#x7ECD; https://yq.aliyun.com/articles/280233](https://user-images.githubusercontent.com/344283/52118158-8b6e1f80-2650-11e9-88e0-1aad1eb6f735.png)
+![来源 https://yq.aliyun.com/articles/280233](../.gitbook/assets/gitflow.png)
 
-```text
-# 查看所有本地与远程分支，行内注释为快捷 alias
+```shell
+# 查看所有本地与远程分支
 git branch -a               # gba
 ​
 # 新建分支 feature/v1，并切换过去
@@ -25,4 +25,3 @@ git branch -d feature/v1    # gbd feature/v1
 # 删除远程 feature/v1 分支
 git push origin --delete feature/v1 # gp -d origin feature/v1
 ```
-

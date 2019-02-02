@@ -4,7 +4,7 @@
 
 **因此，从安全性和便利性的角度考虑，应当始终使用远程仓库的 SSH 地址。**
 
-![](../.gitbook/assets/clone-with-ssh.png)
+![Clone with SSH](../.gitbook/assets/clone-with-ssh.png)
 
 这就要求我们进行 SSH Keys 的配置。SSH 密钥对包含一组「私钥」和「公钥」，私钥存在用户本地，公钥存放在远程主机。
 
@@ -35,6 +35,7 @@ cat ~/.ssh/id_rsa.pub
 ## 3、测试 SSH 是否连接成功
 
 ```shell
-ssh -T git@github.com # 这里以 Github 服务为例
+# 这里以 Github 服务为例
+ssh -T git@github.com
 ```
 
