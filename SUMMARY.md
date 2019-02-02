@@ -4,9 +4,9 @@
 
 ## 概念
 
-* [什么是 origin 和 upstream](concepts/origin-vs-upstream.md)
 * [Git SSH Keys 配置](concepts/ssh-keys.md)
 * [Git Alias](concepts/git-alias.md)
+* [origin 与 upstream](concepts/origin-vs-upstream.md)
 * [Git Stash 与 gwip](concepts/stash-vs-gwip.md)
 * [Git Tag](concepts/git-tag.md)
 * [Subtree 与 Submodule](concepts/subtree-vs-submodule.md)
