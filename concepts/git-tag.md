@@ -42,7 +42,7 @@ git push origin -d v1.0.0 # gp origin :v1.0.0
 
 ## 4、语义化版本与 git describe
 
-清晰的 tag 版本信息，不但有助于发布版本的选择和回滚，同时能十分方便的查看到分支的版本提交进度。
+清晰的 tag 版本信息，不但有助于发布版本的选择和回滚，同时能十分方便的查看到分支的版本提交进度。
 
 ```shell
 git describe master --tags
@@ -50,7 +50,7 @@ git describe master --tags
 
 假如以上命令输出为：v1.1.0-kaiye-gitbook-2-g51e992f
 
-它表明，本地 master 分支当前 commit hash 为 `51e992f`，距离上一次的 tag 版本 `v1.1.0-kaiye-gitbook` 之间已有 `2` 次提交。
+它表明，本地 master 分支当前 commit hash 为 `51e992f`，距离上一次的 tag 版本 `v1.1.0-kaiye-gitbook` 之间已有 `2` 次提交。
 
 如果需要知道本地与远程最近发布的一次 tag 版本是什么，直接运行 `gdct` 即可。
 

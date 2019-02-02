@@ -22,17 +22,17 @@ git push origin master -u # gp -u
 
 如果只想修改上一次的提交的日志信息，使其符合团队规范（如社区广泛使用的 [AngularJS Git Commit Message Conventions](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 或 [gitmoji](https://github.com/carloscuesta/gitmoji/)），可使用
 
-```
+```shell
 git commit --amend # gc!
 ```
 
 ## 4、merge 和 rebase 有什么区别？
 
-如果有疑问，推荐去玩一下本书前言提到的 [Learn Git Branching](https://learngitbranching.js.org) 游戏。
+如果有疑问，推荐去玩一下本书前言提到的 [Learn Git Branching](https://learngitbranching.js.org) 游戏。
 
 **主要的区别是 rebase 改变了时间线，而 merge 没有；rebase 扁平化时间线后，历史记录变得更加简单和直观。**
 
-二者的选择只是个人倾向性问题，底线建议是，不要改变 origin 仓库的时间线，避免找不到背锅侠。
+二者的选择只是个人倾向性问题，底线建议是，不要改变 origin 仓库的时间线，避免找不到背锅侠。
 
 ## 5、我应该用 git pull 还是 git fetch？
 
@@ -44,23 +44,32 @@ git pull --rebase = git fetch + rebase
 ```
 ## 6、操作符 ^ 和 ~ 什么区别？
 
-二者都是向上回溯提交记录的位置选择符，默认值为 1。`^` 用于分支路径选择，`~` 用于提交记录选择。例如 `git checkout v1^~^` 等同于：
+二者都是向上回溯提交记录的位置选择符，默认值为 1。`^` 用于分支路径选择，`~` 用于提交记录选择。例如 `git checkout v1^~^` 等同于：
 
-```
+```shell
 git checkout v1 # gco v1
 git checkout head~3 # gco head~3
 ```
 
-一般来说，记住 `head~N` 之类的用法即可，它表示当前 head 指针往回移 N 位。
+一般来说，记住 `head~N` 之类的用法即可，它表示当前 head 指针往回移 N 位。
 
 ## 7、git push origin :master 是个什么鬼操作？
 
 喔，要小心了，这个操作有点类似 `rm -rf /` ，用于删除远程 master 分支。原因是 push 命令中的 `:` 参数分隔符前面可以选任意分支，如果留空，则表示删除的意思。
 
-```
+```shell
 # 表示将本地 dev 分支的前一个版本推至远程 master
 git push origin dev^:master
 ```
 
-所以一个好的习惯是，在 git 后台设置 protect 好 master，并且在 push 时，不要使用强制参数 `-f`。
-
+所以一个好的习惯是，在 git 后台设置 protect 好 master，并且在 push 时，不要使用强制参数 `-f`。
+
+## 8、如何快速生成 .gitignore 文件？
+
+```shell
+# 安装 gi 命令，来自 https://github.com/joeblau/gitignore.io
+echo "function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;}" >> ~/.zshrc && source ~/.zshrc
+
+# 往项目中追加 node ignore file
+gi node >> .gitignore
+```
