@@ -1,3 +1,7 @@
+---
+description: 作者，微信公众号「猫哥学前班」
+---
+
 # 前言
 
 Git 是程序员必备技能，在能熟练使用 Git GUI 客户端之后（如 [SoureTree](https://www.sourcetreeapp.com/)、[Github Desktop](https://desktop.github.com/)，或者是 VSCode 的 git 面板或 [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) 插件），也许你希望能了解到更多关于 Git 的知识点，并用于解决实际项目遇到的问题。
