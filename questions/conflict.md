@@ -21,7 +21,7 @@ git add <文件名> # ga
 
 你可以直接用编辑器打开冲突的源文件进行修改，但需要注意删除冲突标记，你也可以使用体验更加友好的 Three-Way Merge 工具，借助 `git mergetool` 命令来完成。
 
-[如何配置 git merge tool？](https://github.com/kaiye/git-advanced-guide/tree/6bcedad1ccd7154f47ebdabca5988a2e74bb9c2a/questions/questions/mergetool.md)请参见后续章节。
+如何配置 git merge tool？请参见后续章节。
 
 ## 3、好的习惯
 
