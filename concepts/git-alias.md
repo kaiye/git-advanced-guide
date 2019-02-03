@@ -54,5 +54,5 @@ git ls
 | `gdct` | ``git describe --tags `git rev-list --tags --max-count=1``` | 当前最近 tag 版本信息 |
 | `gca!` | `git commit -v -a --amend` | 将当前修改追加至上一次提交，并修改提交记录 |
 
-**注：本书所有章节中 git 命令行代码中，会在行内注释中标注对应的 zsh alias 用法。**
+**注：本书所有章节 git 命令行代码，会在行内注释中标注对应的 zsh alias 。**
 
